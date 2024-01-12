@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .splash {
+    @apply bg-[url("https://images.unsplash.com/photo-1594280279330-55f9979c5319")] bg-bottom bg-no-repeat bg-cover;
+  }
+
+  .login-form-container {
+    @apply bg-slate-800/75 border-2 border-gray-700 max-w-[360px] max-h-[600px] py-7 px-6 rounded-lg ms-12 my-5 shadow text-white;
+  }
+}

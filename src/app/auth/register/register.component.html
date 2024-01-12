@@ -1,0 +1,56 @@
+<div class="flex flex-col gap-2">
+  <div class="mb-4">Create account</div>
+  <fieldset [disabled]="isLoading">
+    <form
+      (ngSubmit)="register()"
+      [formGroup]="registerForm"
+      class="flex flex-col gap-3"
+    >
+      <div class="flex flex-col gap-1">
+        <label class="form-label">
+          Email
+          <app-control-message [control]="email"></app-control-message>
+        </label>
+        <input
+          class="form-input"
+          type="email"
+          placeholder="Email"
+          formControlName="email"
+        />
+      </div>
+      <div class="flex flex-col gap-1">
+        <label class="form-label">
+          Password
+          <app-control-message [control]="password"></app-control-message>
+        </label>
+        <input
+          class="form-input"
+          type="password"
+          name="password"
+          autocomplete="on"
+          placeholder="Password"
+          formControlName="password"
+        />
+      </div>
+      <div>
+        <button
+          type="submit"
+          [disabled]="registerForm.invalid"
+          class="w-full text-center p-2 mb-4 bg-gray-900 cursor-pointer disabled:cursor-not-allowed rounded-md"
+          [hidden]="isLoading"
+        >
+          Register
+        </button>
+
+        <span [hidden]="!isLoading">
+          <!-- loading indicator -->
+          loading
+        </span>
+      </div>
+    </form>
+  </fieldset>
+  <div class="text-sm">
+    Already have an account?
+    <a [routerLink]="['/login']">Login</a>
+  </div>
+</div>
