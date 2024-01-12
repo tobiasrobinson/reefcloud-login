@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .form-label {
+    @apply uppercase text-xs font-semibold;
+  }
+
+  .form-input {
+    @apply w-full rounded-md box-border outline-none py-3 px-4 bg-gray-900;
+  }
+
+  a {
+    @apply !text-[coral];
+  }
+}
