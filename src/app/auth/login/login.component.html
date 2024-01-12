@@ -1,0 +1,61 @@
+<div class="flex flex-col gap-2">
+  <div class="mb-4">Sign into ReefCloud</div>
+  <fieldset [disabled]="isLoading">
+    <form
+      (ngSubmit)="login()"
+      [formGroup]="loginForm"
+      class="flex flex-col gap-3"
+    >
+      <div class="flex flex-col gap-1">
+        <label class="form-label">
+          Email
+          <app-control-message [control]="email"></app-control-message>
+        </label>
+        <input
+          class="form-input"
+          type="email"
+          placeholder="Email"
+          formControlName="email"
+        />
+      </div>
+      <div class="flex flex-col gap-1">
+        <label class="form-label">
+          Password
+          <app-control-message [control]="password"></app-control-message>
+        </label>
+        <input
+          class="form-input"
+          type="password"
+          name="password"
+          autocomplete="on"
+          placeholder="Password"
+          formControlName="password"
+        />
+      </div>
+      <div>
+        <button
+          type="submit"
+          [disabled]="loginForm.invalid"
+          class="w-full text-center p-2 mb-4 bg-gray-900 cursor-pointer disabled:cursor-not-allowed rounded-md"
+          [hidden]="isLoading"
+        >
+          Login
+        </button>
+
+        <span [hidden]="!isLoading">
+          <!-- loading indicator -->
+          loading
+        </span>
+      </div>
+    </form>
+  </fieldset>
+  <div class="text-sm">
+    Don't have an account?
+    <a [routerLink]="['/register']">Sign up here!</a>
+  </div>
+  <div class="text-sm">
+    Forgot your password?
+    <a>Reset password</a>
+  </div>
+  <div class="text-sm">Didn't receive an email? <a>Resend verification</a></div>
+</div>
